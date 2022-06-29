@@ -6,6 +6,8 @@ black = (0,0,0)
 yellow = (255,255,0)
 def make_grid(n,block_size):
 	global disp
+	global block_len
+	block_len = block_size
 	margin_size = 1
 	grid_size = n+1+(n*block_size)
 	disp = pygame.display.set_mode((grid_size,grid_size))
@@ -26,7 +28,9 @@ while not close_window:
 			close_window  = True
 		elif event.type==pygame.MOUSEBUTTONDOWN:
 			pos = pygame.mouse.get_pos()
-			print(pos)
+			x = pos[0]//block_len
+			y = pos[1]//block_len
+			print(x,y)
 	
 pygame.quit()
 quit()
