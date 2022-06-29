@@ -1,5 +1,11 @@
+import sys
+sys.path.insert(1,'.')
+
 import numpy as np
 import random
+
+import hdf5Helper as h5h
+
 
 def sum_neighbors(board,r,c):
 	neighbors = []
@@ -11,7 +17,7 @@ def sum_neighbors(board,r,c):
 
 def tick(board_in):
 	board_out = np.zeros(board_in.shape)
-	n = board_in.shape
+#	n = board_in.shape
 	for i in range(1,board_in.shape[0]-1):
 		for j in range(1,board_in.shape[1]-1):
 			if board_in[i][j]:
@@ -27,14 +33,24 @@ def tick(board_in):
 	return board_out
 
 def play(rounds, board_size):
-	board = np.zeros((board_size, board_size))
-	for i in range(board_size):
-		for j in range(board_size):
-			board[i,j] = random.randint(0,1)
+    board = np.zeros((board_size, board_size))
+    dims = (1,board_size,board_size)
+    dx = 1
+    
+    for i in range(board_size):
+        for j in range(board_size):
+            [i,j] = random.randint(0,1)
 	
-	for r in range(rounds):
-		print (board)
-		board = tick(board)
+    for r in range(rounds):
+        print (board)
+        
+        # use h5h to output data files
+        h5_file = 'out'+str(i)+'.h5'
+        xmf_file = 'data'+str(i)+'.xmf'
+        h5h.writeH5_GOL(board, h5_file)
+        h5h.writeXdmf_GOL(dims, dx, xmf_file, h5_file)
+        
+        board = tick(board)
  
 play(10, 10)
 				
