@@ -4,6 +4,9 @@ pygame.init()
 white = (255,255,255)
 black = (0,0,0)
 yellow = (255,255,0)
+
+
+
 def make_grid(n,block_size):
 	global disp
 	global block_len
@@ -20,13 +23,15 @@ def make_grid(n,block_size):
 def seed():
 	pass
 
+
 make_grid(10,30)
 close_window  = False
 start_game = False
-while not close_window:
+while not close_window :
 	for event in pygame.event.get():
 		if event.type==pygame.QUIT:	
 			close_window  = True
+			break
 			continue
 
 		while not start_game:
