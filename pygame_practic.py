@@ -22,15 +22,21 @@ def seed():
 
 make_grid(10,30)
 close_window  = False
+start_game = False
 while not close_window:
 	for event in pygame.event.get():
 		if event.type==pygame.QUIT:	
 			close_window  = True
-		elif event.type==pygame.MOUSEBUTTONDOWN:
-			pos = pygame.mouse.get_pos()
-			x = pos[0]//block_len
-			y = pos[1]//block_len
-			print(x,y)
+			continue
+
+		while not start_game:
+			for event in pygame.event.get():
+				if event.type==pygame.MOUSEBUTTONDOWN:
+					pos = pygame.mouse.get_pos()
+					x = pos[0]//block_len
+					y = pos[1]//block_len
+					
+					
 	
 pygame.quit()
 quit()
