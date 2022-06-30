@@ -33,21 +33,21 @@ def tick(board_in):
 	return board_out
 
 def play(rounds, board_size):
-    board = np.zeros((board_size, board_size))
+    board = np.zeros((board_size, board_size),dtype=np.float32)
     dims = (1,board_size,board_size)
     dx = 1
     
     for i in range(board_size):
         for j in range(board_size):
-            [i,j] = random.randint(0,1)
+            board[i,j] = random.randint(0,1)
 	
     for r in range(rounds):
         print (board)
         
         # use h5h to output data files
-        h5_file = 'out'+str(i)+'.h5'
-        xmf_file = 'data'+str(i)+'.xmf'
-        h5h.writeH5_GOL(board, h5_file)
+        h5_file = 'out'+str(r)+'.h5'
+        xmf_file = 'data'+str(r)+'.xmf'
+        h5h.writeH5_GOL(board.reshape(dims), h5_file)
         h5h.writeXdmf_GOL(dims, dx, xmf_file, h5_file)
         
         board = tick(board)

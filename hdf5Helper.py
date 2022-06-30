@@ -132,9 +132,12 @@ def writeXdmf_GOL(dims,dx,filename,h5_file):
     
     f.write('<Attribute Name="state" AttributeType="Scalar" Center="Node">\n')
     f.write('<DataItem Dimensions="%d %d %d" NumberType="Float" Format="HDF">\n'%(dims[0],dims[1],dims[2]))
-    #f.write('out'+str(i)+'.h5:/pres_group/presmag\n')
     f.write('%s:/state_group/state\n'%h5_file)
     f.write('</DataItem>\n')
     f.write('</Attribute>\n')
+    
+    f.write('</Grid>\n')
+    f.write('</Domain>\n')
+    f.write('</Xdmf>\n')
     
     f.close()
