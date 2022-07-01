@@ -52,7 +52,7 @@ def play(rounds, board_size):
         
         board = tick(board)
  
-play(10, 10)
+play(10, 500)
 				
 			
 
