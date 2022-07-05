@@ -1,0 +1,9 @@
+*.*~
+*.h5 
+*.xmf
+*__pycache__*
+*.txt
+*.avi
+pygame_of_life.py
+cpp_game_of_life
+game_of_life.py
