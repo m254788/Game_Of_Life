@@ -105,14 +105,16 @@ int main(int argc, char* argv[]) {
 		board[i] = new int[n];
 	}
 	//initializes board to random binary states
-	/*
+	
 	for(int i = 0; i < n; i++){
 		for(int j = 0; j < n; j++){
 			board[i][j] = rand() % 2;
 		}
 	}
-	*/
+	
+
 	//initialize test board
+	/*
 	std::ifstream inFile;
 	inFile.open("test_board.board");
 	int* test_board = new int[100*100];
@@ -126,6 +128,7 @@ int main(int argc, char* argv[]) {
 		}
 	}
 	delete[] test_board;
+	*/
 
 	//kill border
 	for(int i = 0; i < n; i++){

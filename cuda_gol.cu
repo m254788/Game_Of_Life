@@ -55,15 +55,14 @@ int main(int argc, char* argv[]) {
 	
 
 	//initialize random board with dead borders
-	/*
 	for(int i = 0; i < n*n; i++) {
 		board_even[i] = rand()%2;
-		board_odd[i] = board_even[i];//may not be necessary?
+		//board_odd[i] = board_even[i];//may not be necessary?
 	}
-	*/
+	
 
 	//initialize test case
-
+	/*
 	std::ifstream inFile;
         inFile.open("test_board.board");
         int* test_board = new int[100*100];
@@ -73,6 +72,8 @@ int main(int argc, char* argv[]) {
         }
 	
 	delete [] test_board;
+	*/
+
 	//kill border
 	for(int x = 0; x < n; x++) {
 		board_even[x] = 0;
