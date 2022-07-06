@@ -54,14 +54,25 @@ int main(int argc, char* argv[]) {
 	int* board_odd = new int[n*n];
 	
 
-	//initialize random board
+	//initialize random board with dead borders
+	/*
 	for(int i = 0; i < n*n; i++) {
 		board_even[i] = rand()%2;
 		board_odd[i] = board_even[i];//may not be necessary?
 	}
+	*/
 
+	//initialize test case
 
-	//kill border, border stays dead
+	std::ifstream inFile;
+        inFile.open("test_board.txt");
+        int* test_board = new int[100*100];
+        for(int i = 0; i < 100*100; i++){
+                inFile >> board_even[i];
+		board_odd[i] = board_even[i];//may not be necessary?
+        }
+
+	//kill border
 	for(int x = 0; x < n; x++) {
 		board_even[x] = 0;
 		board_even[(n-1)*n + x] = 0;
@@ -72,6 +83,7 @@ int main(int argc, char* argv[]) {
 		board_odd[x*n]=0;
 		board_odd[x*n+n-1]=0;
 	}
+	
 	
 	write_matrix_to_file(board_even, n, 0);
 
