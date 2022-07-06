@@ -57,7 +57,7 @@ int main(int argc, char* argv[]) {
 	//initialize random board with dead borders
 	for(int i = 0; i < n*n; i++) {
 		board_even[i] = rand()%2;
-		board_odd[i] = board_even[i];
+	
 	}
 	
 
@@ -68,7 +68,7 @@ int main(int argc, char* argv[]) {
         int* test_board = new int[100*100];
         for(int i = 0; i < 100*100; i++){
                 inFile >> board_even[i];
-		board_odd[i] = board_even[i];//may not be necessary?
+		
         }
 	
 	delete [] test_board;
