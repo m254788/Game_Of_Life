@@ -71,7 +71,8 @@ int main(int argc, char* argv[]) {
                 inFile >> board_even[i];
 		board_odd[i] = board_even[i];//may not be necessary?
         }
-
+	
+	delete [] test_board;
 	//kill border
 	for(int x = 0; x < n; x++) {
 		board_even[x] = 0;

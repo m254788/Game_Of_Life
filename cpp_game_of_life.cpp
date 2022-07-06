@@ -105,12 +105,35 @@ int main(int argc, char* argv[]) {
 		board[i] = new int[n];
 	}
 	//initializes board to random binary states
+	/*
 	for(int i = 0; i < n; i++){
 		for(int j = 0; j < n; j++){
 			board[i][j] = rand() % 2;
 		}
 	}
+	*/
+	//initialize test board
+	std::ifstream inFile;
+	inFile.open("test_board.txt");
+	int* test_board = new int[100*100];
+	for(int i = 0; i < n*n; i++) {
+		inFile >> test_board[i];
+	}
 
+	for(int i = 0; i < n; i++){
+		for(int j = 0; j < n; j++){
+			board[i][j] = test_board[i*n+j];
+		}
+	}
+	delete[] test_board;
+
+	//kill border
+	for(int i = 0; i < n; i++){
+		board[0][i]=0;
+		board[n-1][i]=0;
+		board[i][0]=0;
+		board[i][n-1]=0;
+	}
 	write_matrix_to_file(board, n, 0);
 
 	//runs r rounds and prints each board
