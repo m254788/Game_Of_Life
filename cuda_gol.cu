@@ -60,7 +60,6 @@ int main(int argc, char* argv[]) {
 		board_odd[i] = board_even[i];//may not be necessary?
 	}
 
-	write_matrix_to_file(board_even, n, 0);
 
 	//kill border, border stays dead
 	for(int x = 0; x < n; x++) {
@@ -73,6 +72,8 @@ int main(int argc, char* argv[]) {
 		board_odd[x*n]=0;
 		board_odd[x*n+n-1]=0;
 	}
+	
+	write_matrix_to_file(board_even, n, 0);
 
 	int *board_even_d, *board_odd_d;
 	cudaMalloc(&board_even_d, n*n*sizeof(int));
