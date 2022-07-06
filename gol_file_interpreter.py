@@ -5,9 +5,9 @@ import hdf5Helper as h5h
 
 params = np.loadtxt("params.txt",dtype='int')
 n = params[0]
-rounds = params[1]
+states = params[1]
 
-for r in range(rounds):
+for r in range(states):
 	dims = (1,n,n)
 	board = np.loadtxt("evolution"+str(r)+".txt",dtype=np.float32).reshape(dims)
 	dx = 1	

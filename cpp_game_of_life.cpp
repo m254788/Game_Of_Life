@@ -110,16 +110,19 @@ int main(int argc, char* argv[]) {
 			board[i][j] = rand() % 2;
 		}
 	}
+
+	write_matrix_to_file(board, n, 0);
+
 	//runs r rounds and prints each board
 	std::ofstream paramfile;
 	paramfile.open("params.txt");
 	paramfile << n;
 	paramfile << std::endl;
-	paramfile << rounds;
+	paramfile << rounds+1;//total number of states
 
 	for(int r = 0; r < rounds; r++) {
-		write_matrix_to_file(board, n, r);
-		tick(board, n);	
+		tick(board, n);
+		write_matrix_to_file(board, n, r+1);	
 	}
 
 	
