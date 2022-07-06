@@ -114,7 +114,7 @@ int main(int argc, char* argv[]) {
 	*/
 	//initialize test board
 	std::ifstream inFile;
-	inFile.open("test_board.txt");
+	inFile.open("test_board.board");
 	int* test_board = new int[100*100];
 	for(int i = 0; i < n*n; i++) {
 		inFile >> test_board[i];
